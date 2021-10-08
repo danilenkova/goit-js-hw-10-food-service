@@ -6,11 +6,12 @@ const refs = {
         DARK: 'dark-theme',
     },
     defaultTheme() {
-        this.body.classList = localStorage.getItem('Theme');
         if (!localStorage.getItem('Theme')) {
             localStorage.setItem('Theme', this.Theme.LIGHT);
+            this.body.classList = localStorage.getItem('Theme');
         } else if (localStorage.getItem('Theme') === 'dark-theme') {
             document.querySelector('#theme-switch-toggle').checked = true;
+            this.body.classList = localStorage.getItem('Theme');
         }
     },
 }
